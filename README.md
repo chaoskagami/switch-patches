@@ -25,7 +25,7 @@ I reversed the PPC system module (the one responsible for clock speeds), and fig
 
 The second two fields indicate whether the mode is "allowed" in a mode. Changing the second two fields to `1` allows to set the mode whenever (assuming we're privelleged, as with HBL.) As a result, userspace homebrew can now use apmSetPerformanceConfiguration to set the performance profile to any of these no matter the current dock state (including the ones which are both zero, which would normally require SDEV.)
 
-The IPS patch in ppc_patches is intended for 6.0.0 or 6.0.1. I'm not going to backport it, although backporting shouldn't be that difficult assuming the module is set up the same.
+The IPS patch in ppc_patches is intended for the 6.x series of firmware. I'm not going to backport it to <= 5.x, although backporting shouldn't be that difficult assuming the module is set up the same - find table, change values.
 
 The other directory here (apmspeedtest) is a test program to verify that it works properly (e.g. no error codes, proper speed with stress test.)The switch doesn't provide millisecond clock resolution, so we run it for sixty seconds to be accurate. The 1.224 Ghz ones report as higher under *most* circumstances.
 
